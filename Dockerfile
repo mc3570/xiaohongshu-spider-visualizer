@@ -6,9 +6,9 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 RUN sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list
 
 # install chromedriver
-RUN apt-get update -y && apt-get install -y chromedriver unzip wget curl
-RUN wget -O /tmp/chromedriver.zip http://npm.taobao.org/mirrors/chromedriver/`curl -L http://npm.taobao.org/mirrors/chromedriver/LATEST_RELEASE`/chromedriver_linux64.zip
-RUN unzip /tmp/chromedriver.zip chromedriver -d -o /usr/bin/
+RUN apt-get update -y && apt-get install -y unzip wget curl
+RUN wget -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
+RUN unzip /tmp/chromedriver_linux64.zip chromedriver -d -o /usr/bin
 
 # Set the working directory to /app
 WORKDIR /app
